@@ -1,7 +1,18 @@
-package cmd
+package main
 
 import (
+	"ecommerce-boiler/cmd/server"
+	//_ "boilerplate_golang/docs"
 	"ecommerce-boiler/pkg/database"
+	"log"
 )
 
-var dbConnection = database.NewDataBase()
+func main() {
+	var DBConnection = database.NewConnection()
+	err := server.Run(DBConnection)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	server.Injection()
+}

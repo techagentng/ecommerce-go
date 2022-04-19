@@ -24,6 +24,6 @@ func (dt dataStore) ConnectDB(dsn string) *gorm.DB{
 	return db
 }
 
-func (dt dataStore) MigrateAll(db *domain.User) error {
-	return dt.MigrateAll(&domain.User{})
+func (dt *dataStore) MigrateAll(db *gorm.DB) error {
+	return dt.AutoMigrate(&domain.User{})
 }
