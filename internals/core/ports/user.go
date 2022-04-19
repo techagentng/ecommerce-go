@@ -22,10 +22,10 @@ type IUserRepository interface {
 
 // IUserService defines the interface for user service
 type IUserService interface {
-	GetUserByID(id string) (*domain.User, error)
+	GetUserByID(id string) (interface{}, error)
 	GetAllUser(pagination *utils.Pagination) (*utils.Pagination, error)
 	CreateUser(company *domain.User) error
-	UpdateUser(params string) (*domain.User, error)
+	UpdateUser(params string) (*interface{}, error)
 	DeleteUser(id string) error
 }
 // IUserHandler defines the interface for user handler
